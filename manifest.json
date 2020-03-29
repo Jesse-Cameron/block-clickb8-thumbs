@@ -16,5 +16,12 @@
     "gecko": {
       "id": "block-clickb8-thumbs@jesse.im"
     }
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "button/1x/tv_off_18dp.png",
+      "38": "button/2x/tv_off_18dp.png"
+    },
+    "default_title": "Enable/disable thumbnails"
   }
 }

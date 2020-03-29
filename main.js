@@ -12,14 +12,17 @@ const getImageId = url => {
   return foundId ? foundId[1] : getRandomId();
 };
 
-const redirectImage = requestDetails => {
-  const imageId = getImageId(requestDetails.url);
-  return {
-    redirectUrl: `https://picsum.photos/seed/${imageId}/720/404`
-  };
+const getRandomImageUrl = url => {
+  const imageId = getImageId(url);
+  return `https://picsum.photos/seed/${imageId}/720/404`;
 };
 
-browser.webRequest.onBeforeRequest.addListener(
+const redirectImage = requestDetails => {
+  const redirectUrl = getRandomImageUrl(requestDetails.url);
+  return {redirectUrl};
+};
+
+const addImageListener = () => browser.webRequest.onBeforeRequest.addListener(
   redirectImage,
   {
     urls: [youtubeImageDomainPattern],
@@ -27,5 +30,28 @@ browser.webRequest.onBeforeRequest.addListener(
   },
   ['blocking']
 );
+
+const swapButtonIcon = enabled => {
+  const filename = enabled ? 'tv_off_18dp.png' : 'tv_on_18dp.png';
+  const details = {
+    path: {
+      16: `button/1x/${filename}`,
+      38: `button/2x/${filename}`
+    }
+  };
+  browser.browserAction.setIcon(details);
+};
+
+browser.browserAction.onClicked.addListener(() => {
+  if (browser.webRequest.onBeforeRequest.hasListener(redirectImage)) {
+    browser.webRequest.onBeforeRequest.removeListener(redirectImage);
+    swapButtonIcon(false);
+  } else {
+    addImageListener();
+    swapButtonIcon(true);
+  }
+});
+
+addImageListener();
 
 console.log('Extension Loaded');
