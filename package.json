@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "web-ext": "^4.1.0",
-    "xo": "^0.28.1"
+    "xo": "^0.28.2"
   },
   "xo": {
     "space": true
