@@ -54,4 +54,3 @@ browser.browserAction.onClicked.addListener(() => {
 
 addImageListener();
 
-console.log('Extension Loaded');
