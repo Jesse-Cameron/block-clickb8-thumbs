@@ -2,6 +2,8 @@
 
 A handy firefox plugin designed to help with sheilding your browser from those pesky youtube thumbnail images. You know, the ones with the misleading outlines and cringe-y reaction faces.
 
+![Demo displaying add-on functionality](docs/demo.gif)
+
 ## Installation
 
 This plugin can be installed via [Firefox Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/block-clickb8-thumbs/)
