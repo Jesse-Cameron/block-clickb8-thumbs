@@ -4,7 +4,7 @@ A handy firefox plugin designed to help with sheilding your browser from those p
 
 ## Installation
 
-This plugin can be installed ...
+This plugin can be installed via [Firefox Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/block-clickb8-thumbs/)
 
 ## Local Development
 
@@ -12,7 +12,7 @@ Once [cloned](https://help.github.com/en/github/creating-cloning-and-archiving-r
 
 The extension can then be started by using:
 
-```
+```bash
 cd block-clickb8-thumbs
 npm install
 npm run dev
